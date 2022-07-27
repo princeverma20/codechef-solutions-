@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int binexp(int a,int b,int m)
+    {
+        a%=m;
+        int ans=1;
+        while(b>0)
+        {
+            if(b&1){
+                ans=(ans*1LL*a)%m;
+            }
+            a=(a*1LL*a)%m;
+            b >>=1;
+        }
+        return ans;
+    }
+    int superPow(int a, vector<int>& b) {
+        int sum=0;
+        for(int val:b)
+        {
+            sum=(sum*10+val)%1140;
+        }
+      
+        return binexp(a,sum,1337);
+    }
+};
